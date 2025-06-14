@@ -12,9 +12,9 @@
     --blue-600: #2563eb;
 }
 
-.btn-blue-dark {background-color: var(--blue-600);}
-.btn-blue-medium {background-color: var(--blue-400);}
-.btn-blue-light {background-color: var(--blue-200);}
+.btn-blue-dark { background-color: var(--blue-600) !important; }
+.btn-blue-medium { background-color: var(--blue-400) !important; }
+.btn-blue-light {background-color: var(--blue-200) !important; }
 
 body {
     background: #eeeeee;
@@ -144,7 +144,6 @@ textarea:focus {
 .flex-grow-1:first-child .legend-item {
   border-left: 1px solid #333;
 }
-
 
 
 

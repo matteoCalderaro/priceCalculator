@@ -112,8 +112,8 @@
                 <button id="clear-btn" class="btn btn-sm btn-outline-danger fw-medium" onclick="clearTable1()">Clear data table</button>
                 <div class="d-flex gap-2 ms-auto">
                     <button class="btn btn-sm fw-medium btn-blue-light" onclick="addRow()">Add Row</button>
-                    <button class="btn btn-sm fw-medium btn-blue-medium text-white" style="background-color: var(--blue-400)">Validate data</button>
-                    <button class="btn btn-sm fw-medium btn-blue-dark text-white" style="background-color: var(--blue-600)" onclick="renderTable2()">Generate simulation</button>
+                    <button class="btn btn-sm fw-medium btn-blue-medium text-white" onclick="validateTable1()">Validate data</button>
+                    <button class="btn btn-sm fw-medium btn-blue-dark text-white" onclick="renderTable2()">Generate simulation</button>
                 </div>
             </div>
             
@@ -121,6 +121,7 @@
             <table class="table table1 table-sm mb-0">
                 <thead class="text-uppercase small">
                     <tr>
+                        <th class="fw-semibold text-center" style="width: 60px;">#</th>
                         <th class="fw-semibold">Material</th>
                         <th class="fw-semibold">Quantity</th>
                         <th class="fw-semibold">Domestic Rebates</th>
@@ -228,8 +229,33 @@
                     Are you sure you want to clear the data table?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" style="width: 80px;" class="btn btn-secondary btn-sm me-2" data-bs-dismiss="modal">Exit</button>
-                    <button type="button" style="width: 80px;"  class="btn btn-danger btn-sm" id="confirmClearBtn">Yes</button>
+                    <button type="button" style="width: 80px;" class="btn btn-outline-secondary btn-sm fw-medium me-2" data-bs-dismiss="modal">Exit</button>
+                    <button type="button" style="width: 80px;"  class="btn btn-sm btn-outline-danger fw-medium" id="confirmClearBtn">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ERROR MODAL -->
+    <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="errorModalLabel">Please Fix the Following Errors</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style=" max-height: 50vh; overflow-y: auto;">
+                    <ul class="mb-0">
+                        <li>Error 1: Missing name field.</li>
+                        <li>Error 2: Email is invalid.</li>
+                        <li>Error 3: Password must be at least 8 characters.
+                             <div style="height: 1000px;"></div>
+                        </li>
+                        <li>Error 4: You must accept the terms and conditions.</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-blue-dark text-white btn-sm fw-medium"  style="width: 90px;" data-bs-dismiss="modal">OK</button>
                 </div>
             </div>
         </div>
@@ -394,8 +420,12 @@
             calltoaction.classList.remove("d-none");
             textareaTextPlaceholder.classList.add("d-none");
         }
-        
-        
+        function validateTable1() {
+            // Optionally, validate and populate error list here
+            const errorModalEl = document.getElementById('errorModal');
+            const errorModal = new bootstrap.Modal(errorModalEl);
+            errorModal.show();
+        }
         
         
         // LISTENERS
@@ -428,12 +458,21 @@
                 tableBody.appendChild(tr);
                 //}
             });
+            
+            updateRowNumbers(); // Update row numbers after creating all rows
+            
             renderTable1()
             blurTextarea()
         });
         
         function createRow(product = "", quantity = "", domesticRebates = "", adjustment = "", internationalRebates = "") {
             let tr = document.createElement("tr");
+            
+            // Create row number cell (first column)
+            let tdRowNumber = document.createElement("td");
+            tdRowNumber.classList.add("row-number", "text-center");
+            tdRowNumber.style.backgroundColor = "#f8f9fa";
+            tr.appendChild(tdRowNumber);
             
             [product, quantity, domesticRebates, adjustment, internationalRebates].forEach((value, index) => {
                 let td = document.createElement("td");
@@ -450,17 +489,36 @@
             btnElimina.style.color = "inherit";
             btnElimina.classList.add("ms-3");
             
-            btnElimina.onclick = () => tr.remove();
+            // Modified onclick to update row numbers after deletion
+            btnElimina.onclick = () => {
+                tr.remove();
+                updateRowNumbers();
+            };
+            
             tdAzioni.appendChild(btnElimina);
             tr.appendChild(tdAzioni);
             
             return tr;
         }
-
+        
         function addRow(){
             const tableBody = document.querySelector('.page-1-container tbody');
             let tr = createRow();
             tableBody.prepend(tr);
+            
+            updateRowNumbers(); // Update row numbers after creating all rows
+        }
+        
+        function updateRowNumbers() {
+            const tableBody = document.querySelector('.page-1-container tbody');
+            const rows = tableBody.getElementsByTagName('tr');
+            
+            for (let i = 0; i < rows.length; i++) {
+                const rowNumberCell = rows[i].querySelector('.row-number');
+                if (rowNumberCell) {
+                    rowNumberCell.textContent = i + 1;
+                }
+            }
         }
         
         
@@ -476,6 +534,7 @@
             tableBody.appendChild(tr);
             //}
         });
+        updateRowNumbers(); // Update row numbers after creating all rows
         renderTable1()
         blurTextarea()
         // ----------------------------
