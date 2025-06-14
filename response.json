@@ -1,0 +1,353 @@
+[
+    {
+        "material": "string",
+        "quantity": 1.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 2.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 3.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 4.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 5.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 6.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 7.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 8.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 9.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 10.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 11.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 12.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 13.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 14.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 15.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 16.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 17.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 18.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 19.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 20.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 21.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 22.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 23.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 24.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 25.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 26.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 27.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 28.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 29.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 30.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 31.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 32.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 33.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 34.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 35.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 36.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 37.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 38.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    },
+    {
+        "material": "string",
+        "quantity": 39.00,
+        "domesticRebates": 1.00,
+        "adjustment": 10,
+        "internationalRebates": 1.00,
+        "suggestedPrice": 10,
+        "margin": 50
+    }
+]

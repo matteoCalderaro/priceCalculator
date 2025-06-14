@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Paste & Table Skeleton</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    
+    <link rel="stylesheet" href="pricecalculator-landing.css">
+    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="inputMask.min.js"></script>
+    
+</head>
+<body class="vh-100 d-flex flex-column">
+    <div style="background-color: var(--blue-gray-dark); height: 50px;width: 100%; position: sticky; top:0;z-index: 100;flex-shrink: 0;"></div>
+    
+    <!-- CUSTOMER FORM -->
+    <div id="customerForm" class="flex-shrink-0 bg-white rounded-2 shadow-sm my-3 px-4 pt-2 pb-3 mx-4" style="height: 90px;">
+        
+        <div class="d-flex h-100 gap-5">
+            
+            <div class="d-flex flex-column flex-grow-1">
+                <div class="d-flex align-items-center small flex-grow-1">
+                    <label class="customerform-label mb-0 me-0">Customer ID:</label>
+                    <input type="text" class="customerform-input" />
+                </div>
+                <div class="d-flex align-items-center small flex-grow-1">
+                    <label class="customerform-label mb-0 me-0">Sales Org:</label>
+                    <input type="text" class="customerform-input" />
+                </div>
+            </div>
+            <div class="d-flex flex-column flex-grow-1">
+                <div class="d-flex align-items-center small flex-grow-1">
+                    <label class="customerform-label mb-0 me-0">Country Region:</label>
+                    <input type="text" class="customerform-input" />
+                </div>
+                <div class="d-flex align-items-center small flex-grow-1">
+                    <label class="customerform-label mb-0 me-0">Brand:</label>
+                    <input type="text" class="customerform-input" />
+                </div>                    
+            </div>
+            <div class="d-flex flex-column flex-grow-1">
+                <div class="d-flex align-items-center small flex-grow-1">
+                    <label class="customerform-label mb-0 me-0">Copper Price:</label>
+                    <input type="text" class="customerform-input decimals" />
+                </div>
+                <div class="d-flex align-items-center small flex-grow-1">
+                    <label class="customerform-label mb-0 me-0">Aluminium Price:</label>
+                    <input type="text" class="customerform-input decimals" />
+                </div>
+                
+            </div>
+            <div class="d-flex flex-column flex-grow-1 customerform-third-column">
+                <div class="d-flex align-items-center small flex-grow-1">
+                    <label class="customerform-label mb-0 me-0">Date:</label>
+                    <input type="text" class="customerform-input date" />
+                </div>
+                <div class="d-flex align-items-center small flex-grow-1">
+                    <label class="customerform-label mb-0 me-0">Actions:</label>
+                    <input type="text" class="customerform-input" />
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+    <!-- GO BACK BUTTON -->
+    <div id="goBackBtn" class="align-items-center bg-white d-flex flex-shrink-0 mx-4 my-3 px-4 py-3 rounded-2 shadow-sm d-none">
+        <div class="d-flex align-items-center gap-2">
+            <button  class="btn btn-primary btn-sm" onclick="goBack()"> <i class="fas fa-chevron-left me-1"></i>Back</button>
+            <span>Return to previous page to upload new data.</span>
+        </div>
+        
+    </div>
+    
+    
+    <!-- DROPZONE -->
+    <div id="dropzone" class="d-flex flex-column flex-grow-1 bg-white rounded-2 shadow-sm mx-4 mb-3">
+        
+        <div class="d-flex flex-column px-4 pt-1 pb-2">
+            <div class="fs-5 fw-semibold">Paste Data</div>
+            <!-- <div class="small text-muted">You can paste clipboard data directly. Text data is allowed.</div> -->
+        </div>
+        
+        <div class="px-4 pb-4 flex-grow-1">
+            <div class="textarea-outer-container h-100 d-flex justify-content-center align-items-center position-relative">
+                <div class="calltoaction text-center text-gray-italic">
+                    <i class="fas fa-mouse-pointer me-2 text-muted"></i>
+                    <span><em>Click here to paste copied data</em></span>
+                    <div><em class="small">Only text content is supported</em></div>
+                </div>
+                <div class="textarea-inner-container w-100 h-100 position-absolute d-none">
+                    <textarea id="excelInput" class="w-100 h-100"></textarea>
+                    <div class="textarea-text-placeholder w-100 text-center text-gray-italic">
+                        <i class="fas fa-clipboard me-2 text-muted"></i>
+                        Press <span class="fw-semibold">Ctrl+V</span> (or <span class="fw-semibold">Cmd+V</span>) to paste
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- TABLE -->
+    <div class="tables-container rounded-2 shadow-sm mx-4 d-none flex-grow-1 mb-3" style="min-height: 0;">
+        
+        <div class="table-1-container bg-white rounded-2 p-4 d-none">
+            
+            <div class="d-flex justify-content-between align-items-center pb-3">
+                <button id="clear-btn" class="btn btn-sm btn-outline-danger fw-medium" onclick="clearTable()">Clear data table</button>
+                <div class="d-flex gap-2 ms-auto">
+                    <button class="btn btn-sm fw-medium" style="background-color: #b1d2ea;">Add Row</button>
+                    <button class="btn btn-sm fw-medium text-white" style="background-color: #4790c6;">Validate data</button>
+                    <button class="btn btn-primary btn-sm fw-medium" onclick="generateSimulation()">Generate simulation</button>
+                </div>
+            </div>
+            
+            <table class="table table-sm mb-0" id="secondTable">
+                <thead class="text-uppercase small">
+                    <tr>
+                        <th class="fw-semibold">Material</th>
+                        <th class="fw-semibold">Quantity</th>
+                        <th class="fw-semibold">Domestic Rebates</th>
+                        <th class="fw-semibold">Adjustment</th>
+                        <th class="fw-semibold">International Rebates</th>
+                        <th class="fw-semibold" style="width: 50px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            
+        </div>
+        
+        <div class="table-2-container bg-white rounded-2 h-100 p-4 d-none d-flex flex-column" style="min-height: 0;">
+            
+            <div class="d-flex flex-grow-1" style="min-height: 0;">
+                
+                <div class="d-flex flex-column pe-4 border-end" style="flex: 0 1 70%; min-height: 0;">
+
+                    <!-- Fixed Header -->
+                    <div class="flex-shrink-0" style="border-bottom: 1px solid #dee2e6;">
+                        <table class="table table-sm mb-0" style="table-layout: fixed;">
+                            <thead class="text-uppercase small">
+                                <tr>
+                                    <th class="fw-semibold" style="width: 14.28%;">Material</th>
+                                    <th class="fw-semibold" style="width: 14.28%;">Quantity</th>
+                                    <th class="fw-semibold" style="width: 14.28%;">Domestic rebates</th>
+                                    <th class="fw-semibold" style="width: 14.28%;">Adjustment</th>
+                                    <th class="fw-semibold" style="width: 14.28%;">Internat. rebates</th>
+                                    <th class="fw-semibold" style="width: 14.28%;">Suggested price</th>
+                                    <th class="fw-semibold" style="width: 14.28%;">Margin (%)</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    
+                    <!-- Scrollable Body -->
+                    <div class="flex-grow-1" style="overflow-y: auto; min-height: 0;">
+                        <table class="table table-sm mb-0" style="table-layout: fixed;">
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="d-flex gap-5 align-items-center" style="flex-shrink: 0;  margin-top: 70px">
+
+                        <div class="fw-semibold">Legenda</div>
+                        <div class="d-flex flex-grow-1">
+                            <div class="flex-grow-1">
+                                <div>XX$</div>
+                                <div style="background-color: red;height: 10px"></div>
+                            </div>
+                            <div class="flex-grow-1">
+                                <div>XX$</div>
+                                <div style="background-color: yellow;height: 10px"></div>
+                            </div>
+                            <div class="flex-grow-1">
+                                <div>XX$</div>
+                                <div style="background-color: orange;height: 10px"></div>
+                            </div>
+                            <div class="flex-grow-1">
+                                <div>XX$</div>
+                                <div style="background-color: blue;height: 10px"></div>
+                            </div>
+                            <div class="flex-grow-1">
+                                <div>XX$</div>
+                                <div style="background-color: green;height: 10px"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <div class="ps-4" style="flex: 0 1 30%;">
+                    <div class="fw-semibold mb-2">Acceptance probability curve</div>
+                    <div style="width: 600px; height: 600px; background-color: #dfd6d6;"></div>
+                </div>
+                
+            </div>
+            
+            
+        </div>
+        
+    </div>
+    
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmationModalLabel">Confirm Clear Data</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to clear the data table?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" style="width: 80px;" class="btn btn-secondary btn-sm me-2" data-bs-dismiss="modal">Exit</button>
+                    <button type="button" style="width: 80px;"  class="btn btn-danger btn-sm" id="confirmClearBtn">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="spinner" class="align-items-center d-flex h-100 justify-content-center position-absolute w-100 d-none" style="background-color: #b1d2ea;">
+        <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        
+        // DROPZONE E TABELLA
+        const dropzone = document.querySelector('#dropzone');
+        const tablesContainer = document.querySelector('.tables-container');
+        const table1_Container = document.querySelector('.table-1-container');
+        const table = document.querySelector('.table');
+        const confirmationModal = $('#confirmationModal');
+        const confirmClearBtn = $('#confirmClearBtn');
+        
+        const table2_Container = document.querySelector('.table-2-container');
+        const customerForm = document.querySelector('#customerForm');
+        const goBackBtn = document.querySelector('#goBackBtn');
+        
+        function renderTable() {
+            dropzone.classList.add('d-none');
+            table1_Container.classList.remove('d-none');
+            tablesContainer.classList.remove('d-none');
+            table.classList.add('show');
+        }
+        
+        function clearTable() {
+            confirmationModal.modal('show');
+            
+            confirmClearBtn.off('click').on('click', function() {
+                
+                confirmationModal.modal('hide');
+                dropzone.classList.remove('d-none');
+                dropzone.classList.add('show');
+                table1_Container.classList.add('d-none');
+                tablesContainer.classList.add('d-none');
+                table.classList.remove('show');
+            });
+        }
+        
+        async function generateSimulation() {
+            
+            // Show spinner
+            document.getElementById('spinner').classList.remove('d-none');
+            
+            // Scroll to top and disable scrollbar
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.body.style.overflow = 'hidden';
+            
+            try {
+                
+                const response = await fetch('response.json');
+                const data = await response.json();
+                
+                const tbody = document.querySelector('.table-2-container tbody');
+                if (tbody) tbody.innerHTML = '';
+                
+                data.forEach(item => {
+                    const tr = document.createElement('tr');
+                    for (const key in item) {
+                        const td = document.createElement('td');
+                        td.textContent = item[key];
+                        tr.appendChild(td);
+                    }
+                    tbody?.appendChild(tr);
+                });
+                
+                customerForm.classList.add('d-none');
+                goBackBtn.classList.remove('d-none');
+                table1_Container.classList.add('d-none');
+                table2_Container.classList.remove('d-none');
+                tablesContainer.classList.remove('d-none');
+                
+            } catch (error) {
+                console.error('Error loading simulation data:', error);
+            } finally {
+                setTimeout(() => {
+                    // Hide spinner and re-enable scrollbar
+                    document.getElementById('spinner').classList.add('d-none');
+                    document.body.style.overflow = '';
+                }, 1000);
+            }
+            
+        }
+        
+        function goBack() {
+            table2_Container.classList.add('d-none');
+            table1_Container.classList.remove('d-none');
+            goBackBtn.classList.add('d-none');
+            customerForm.classList.remove('d-none');
+        }
+        
+        // TEXTAREA
+        const excelInput = document.getElementById("excelInput");
+        const calltoaction = document.querySelector(".calltoaction");
+        const textareaOuterContainer = document.querySelector(".textarea-outer-container");
+        const textareaInnerContainer = document.querySelector(".textarea-inner-container");
+        const textareaTextPlaceholder = document.querySelector(".textarea-text-placeholder");
+        
+        function blurTextarea(){
+            textareaInnerContainer.classList.add("d-none");
+            calltoaction.classList.remove("d-none");
+            textareaTextPlaceholder.classList.add("d-none");
+        }
+        function focusTextarea(){
+            calltoaction.classList.add("d-none");
+            textareaInnerContainer.classList.remove("d-none");
+            textareaTextPlaceholder.classList.remove("d-none");
+            excelInput.focus();
+        }
+        
+        
+        // LISTENERS
+        textareaOuterContainer.addEventListener("click", function () {
+            focusTextarea()
+        });
+        
+        excelInput.addEventListener("keydown", function (e) {
+            const isPaste = (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "v";
+            if (!isPaste) e.preventDefault();
+        });
+        
+        excelInput.addEventListener("blur", function () {
+            blurTextarea()
+        });
+        
+        excelInput.addEventListener("paste", function (e) {
+            e.preventDefault();
+            let clipboardData = e.clipboardData || window.clipboardData;
+            let pastedData = clipboardData.getData('Text');
+            
+            let rows = pastedData.trim().split('\n');
+            let tableBody = document.getElementById("secondTable").getElementsByTagName("tbody")[0];
+            tableBody.innerHTML = ''
+            
+            rows.forEach(row => {
+                let columns = row.split('\t');
+                // if (columns.length >= 5) {
+                let tr = createRow(columns[0], columns[1], columns[2], columns[3], columns[4]);
+                tableBody.appendChild(tr);
+                //}
+            });
+            renderTable()
+            blurTextarea()
+        });
+        
+        function createRow(product = "", quantity = "", domesticRebates = "", adjustment = "", internationalRebates = "") {
+            let tr = document.createElement("tr");
+            
+            [product, quantity, domesticRebates, adjustment, internationalRebates].forEach((value, index) => {
+                let td = document.createElement("td");
+                td.contentEditable = "true";
+                td.textContent = value.trim();
+                tr.appendChild(td);
+            });
+            
+            let tdAzioni = document.createElement("td");
+            let btnElimina = document.createElement("a");
+            btnElimina.innerHTML = "<i class='bi bi-trash fs-5 text-danger'></i>";
+            
+            btnElimina.style.cursor = "pointer"; 
+            btnElimina.style.color = "inherit";
+            btnElimina.classList.add("ms-3");
+            
+            btnElimina.onclick = () => tr.remove();
+            tdAzioni.appendChild(btnElimina);
+            tr.appendChild(tdAzioni);
+            
+            return tr;
+        }
+        
+        
+        // provvisorio solo per sviluppo
+        let tableBody = document.getElementById("secondTable").getElementsByTagName("tbody")[0];
+        tableBody.innerHTML = ''
+        let   rows = ["string\t1,00\t1,00\t10\t1,00\tnul", "string\t2,00\t1,00\t10\t1,00\tnul", "string\t3,00\t1,00\t10\t1,00\tnul", "string\t4,00\t1,00\t10\t1,00\tnul", "string\t5,00\t1,00\t10\t1,00\tnul", "string\t6,00\t1,00\t10\t1,00\tnul", "string\t7,00\t1,00\t10\t1,00\tnul", "string\t8,00\t1,00\t10\t1,00\tnul", "string\t9,00\t1,00\t10\t1,00\tnul", "string\t10,00\t1,00\t10\t1,00\tnul", "string\t11,00\t1,00\t10\t1,00\tnul", "string\t12,00\t1,00\t10\t1,00\tnul", "string\t13,00\t1,00\t10\t1,00\tnul", "string\t14,00\t1,00\t10\t1,00\tnul", "string\t15,00\t1,00\t10\t1,00\tnul", "string\t16,00\t1,00\t10\t1,00\tnul", "string\t17,00\t1,00\t10\t1,00\tnul", "string\t18,00\t1,00\t10\t1,00\tnul", "string\t19,00\t1,00\t10\t1,00\tnul", "string\t20,00\t1,00\t10\t1,00\tnul", "string\t21,00\t1,00\t10\t1,00\tnul", "string\t22,00\t1,00\t10\t1,00\tnul", "string\t23,00\t1,00\t10\t1,00\tnul", "string\t24,00\t1,00\t10\t1,00\tnul", "string\t25,00\t1,00\t10\t1,00\tnul", "string\t26,00\t1,00\t10\t1,00\tnul", "string\t27,00\t1,00\t10\t1,00\tnul", "string\t28,00\t1,00\t10\t1,00\tnul", "string\t29,00\t1,00\t10\t1,00\tnul", "string\t30,00\t1,00\t10\t1,00\tnul", "string\t31,00\t1,00\t10\t1,00\tnul", "string\t32,00\t1,00\t10\t1,00\tnul", "string\t33,00\t1,00\t10\t1,00\tnul", "string\t34,00\t1,00\t10\t1,00\tnul", "string\t35,00\t1,00\t10\t1,00\tnul", "string\t36,00\t1,00\t10\t1,00\tnul", "string\t37,00\t1,00\t10\t1,00\tnul", "string\t38,00\t1,00\t10\t1,00\tnul", "string\t39,00\t1,00\t10\t1,00\tnul"]
+        rows.forEach(row => {
+            let columns = row.split('\t');
+            // if (columns.length >= 5) {
+            let tr = createRow(columns[0], columns[1], columns[2], columns[3], columns[4]);
+            tableBody.appendChild(tr);
+            //}
+        });
+        renderTable()
+        blurTextarea()
+        
+        
+        
+        
+        
+        
+        
+        var inputmask_decimals = {
+            "alias": "decimal",
+            "digits": 2,
+            "digitsOptional": false,
+            "radixPoint": ",",
+            "groupSeparator": "˙",
+            "autoGroup": true,
+            "removeMaskOnSubmit": true,
+            "rightAlign": false
+        };
+        
+        $(document).ready(function () {
+            $('.decimals').inputmask(inputmask_decimals);
+        });
+        
+        var inputmask_date = {
+            "alias": "datetime",
+            "inputFormat": "dd/mm/yyyy",
+            "placeholder": "dd/mm/yyyy", // Optional: shows this text when the input is empty
+            "rightAlign": false // Dates are typically left-aligned
+        };
+        
+        $(document).ready(function () {
+            $('.date').inputmask(inputmask_date);
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+:root {
+    --blue-gray-dark: #2D354A;
+    --blue-gray-dark-rgb: 34, 49, 63; /* RGB values of #22313f */
+    --blue-gray-medium: #868ea0;
+    --blue-gray-light: #f5f7fb;
+    --gray-500: #99a1b7;
+    --gray-600: #78829B
+}
+
+body {
+    background: #eeeeee;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* CUSTOMER FORM */
+.customerform-label {
+    min-width: 120px;
+    margin-bottom: -7px !important;
+}
+.customerform-third-column .customerform-label{
+    min-width: 70px !important;
+}
+.customerform-input {
+    border: none;
+    border-bottom: 1px dashed #868ea0;
+    background: transparent;
+    padding: 1px 3px;
+    width: 90%;
+    height: calc(1em + 0.4rem);
+}
+
+.customerform-input:focus {
+    outline: none;
+    border-bottom: 2px solid #007bff;
+}
+
+/* DROPZONE */
+.textarea-outer-container {
+    border: 2px dashed #868ea0;
+    border-radius: 0.5rem;
+    background-color: #f5f7fb;
+    cursor: pointer;
+}
+textarea {
+    border: none;
+    outline: none;
+    background: transparent;
+    resize: none;
+}
+textarea:focus {
+    background-color: #dbe2ef;
+}
+.textarea-text-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+.text-gray-italic {
+    font-style: italic;
+    color: #868ea0;
+}
+#dropzone.show {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* TABLE */
+.table.show { 
+    animation: fadeIn 0.5s ease-in-out;
+}
+.table thead {
+    background-color: #1d8a8a;
+    color: var(--blue-gray-dark)
+}
+.table tbody td:last-child {
+    padding: 0 !important;
+    vertical-align: middle;
+}
+.table tbody td {
+    border-right: 1px dashed #ddd;
+    border-bottom: 1px dashed #ddd;
+    padding: 8px 12px;
+    cursor: text;
+}
+.table tbody tr td:first-child {
+    font-weight: 500;
+}
+.table tbody tr td:not(:first-child) {
+    color: var(--gray-600);
+}
+.table tbody td[contenteditable="true"]:focus {
+    background-color: #f0f8ff;
+    outline: none; 
+    box-shadow: inset 0 0 3px 2px #3399ff;
+}
+.table tbody td[contenteditable="true"]:hover:not(:focus) {
+    background-color: #becff1
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
