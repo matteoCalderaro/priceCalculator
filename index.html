@@ -291,8 +291,105 @@
         const textareaInnerContainer = document.querySelector(".textarea-inner-container");
         const textareaTextPlaceholder = document.querySelector(".textarea-text-placeholder");
 
+        ////////////////////////
+        // TABLE 1
+        ///////////////////////
+        textarea.addEventListener("paste", function (e) {
+            e.preventDefault();
+            let clipboardData = e.clipboardData || window.clipboardData;
+            let pastedData = clipboardData.getData('Text');
+            
+            let rows = pastedData.trim().split('\n');
+            table1.innerHTML = ''
+            
+            rows.forEach(row => {
+                let columns = row.split('\t');
+                // if (columns.length >= 5) {
+                let tr = createRow(columns[0], columns[1], columns[2], columns[3], columns[4]);
+                table1.appendChild(tr);
+                //}
+            });
+            updateRowNumbers();
+            blurTextarea()
+        });
         
+        function createRow(product = "", quantity = "", domesticRebates = "", adjustment = "", internationalRebates = "") {
+            let tr = document.createElement("tr");
+            
+            // Create row number cell (first column)
+            let tdRowNumber = document.createElement("td");
+            tdRowNumber.classList.add("row-number", "text-center");
+            tdRowNumber.style.backgroundColor = "#f8f9fa";
+            tr.appendChild(tdRowNumber);
+            
+            [product, quantity, domesticRebates, adjustment, internationalRebates].forEach((value, index) => {
+                let td = document.createElement("td");
+                td.contentEditable = "true";
+                td.textContent = value.trim();
+                tr.appendChild(td);
+            });
+            
+            let tdAzioni = document.createElement("td");
+            let btnElimina = document.createElement("a");
+            btnElimina.innerHTML = "<i class='bi bi-trash fs-5 text-danger'></i>";
+            
+            btnElimina.style.cursor = "pointer"; 
+            btnElimina.style.color = "inherit";
+            btnElimina.classList.add("ms-3");
+            
+            // Modified onclick to update row numbers after deletion
+            btnElimina.onclick = () => {
+                tr.remove();
+                updateRowNumbers();
+            };
+            
+            tdAzioni.appendChild(btnElimina);
+            tr.appendChild(tdAzioni);
+            
+            return tr;
+        }
+ 
+        function firstRenderTable1(){
+            table1.innerHTML = ''
+            addRow()
+        }
+        
+        function clearTable1() {
+            confirmationModal.modal('show');
+            confirmClearBtn.off('click').on('click', function() {
+                confirmationModal.modal('hide');
+                firstRenderTable1()
+            });
+        }
+        
+        function addRow(){
+            let tr = createRow();
+            table1.prepend(tr);
+            updateRowNumbers();
+        }
+        
+        function updateRowNumbers() {
+            const rows = table1.getElementsByTagName('tr');
+            for (let i = 0; i < rows.length; i++) {
+                const rowNumberCell = rows[i].querySelector('.row-number');
+                if (rowNumberCell) {
+                    rowNumberCell.textContent = i + 1;
+                }
+            }
+        }
+
+        function validateTable1() {
+            // Optionally, validate and populate error list here
+            const errorModalEl = document.getElementById('errorModal');
+            const errorModal = new bootstrap.Modal(errorModalEl);
+            errorModal.show();
+        }
+
+        firstRenderTable1()
+        
+        ////////////////////////
         // TABLE 2
+        ///////////////////////
         async function renderTable2() {
             
             document.getElementById('spinner').classList.remove('d-none');
@@ -373,12 +470,15 @@
             }
         }
         
-        
         function goPageBack() {
             page2.classList.add('d-none');
             page1.classList.remove('d-none');
         }
         
+
+        ////////////////////////
+        // TEXTAREA
+        ///////////////////////
         function focusTextarea(){
             calltoaction.classList.add("d-none");
             textareaInnerContainer.classList.remove("d-none");
@@ -386,21 +486,14 @@
             textareaOuterContainer.classList.add("focused");
             textarea.focus();
         }
+
         function blurTextarea(){
             textareaInnerContainer.classList.add("d-none");
             textareaOuterContainer.classList.remove("focused");
             calltoaction.classList.remove("d-none");
             textareaTextPlaceholder.classList.add("d-none");
         }
-        function validateTable1() {
-            // Optionally, validate and populate error list here
-            const errorModalEl = document.getElementById('errorModal');
-            const errorModal = new bootstrap.Modal(errorModalEl);
-            errorModal.show();
-        }
         
-        
-        // LISTENERS
         textareaOuterContainer.addEventListener("click", function () {
             focusTextarea()
         });
@@ -414,96 +507,7 @@
             blurTextarea()
         });
         
-        // FUNZIONI TABLE 1
-        textarea.addEventListener("paste", function (e) {
-            e.preventDefault();
-            let clipboardData = e.clipboardData || window.clipboardData;
-            let pastedData = clipboardData.getData('Text');
-            
-            let rows = pastedData.trim().split('\n');
-            table1.innerHTML = ''
-            
-            rows.forEach(row => {
-                let columns = row.split('\t');
-                // if (columns.length >= 5) {
-                let tr = createRow(columns[0], columns[1], columns[2], columns[3], columns[4]);
-                table1.appendChild(tr);
-                //}
-            });
-            
-            updateRowNumbers();
-            blurTextarea()
-        });
-        
-        function createRow(product = "", quantity = "", domesticRebates = "", adjustment = "", internationalRebates = "") {
-            let tr = document.createElement("tr");
-            
-            // Create row number cell (first column)
-            let tdRowNumber = document.createElement("td");
-            tdRowNumber.classList.add("row-number", "text-center");
-            tdRowNumber.style.backgroundColor = "#f8f9fa";
-            tr.appendChild(tdRowNumber);
-            
-            [product, quantity, domesticRebates, adjustment, internationalRebates].forEach((value, index) => {
-                let td = document.createElement("td");
-                td.contentEditable = "true";
-                td.textContent = value.trim();
-                tr.appendChild(td);
-            });
-            
-            let tdAzioni = document.createElement("td");
-            let btnElimina = document.createElement("a");
-            btnElimina.innerHTML = "<i class='bi bi-trash fs-5 text-danger'></i>";
-            
-            btnElimina.style.cursor = "pointer"; 
-            btnElimina.style.color = "inherit";
-            btnElimina.classList.add("ms-3");
-            
-            // Modified onclick to update row numbers after deletion
-            btnElimina.onclick = () => {
-                tr.remove();
-                updateRowNumbers();
-            };
-            
-            tdAzioni.appendChild(btnElimina);
-            tr.appendChild(tdAzioni);
-            
-            return tr;
-        }
- 
-        function firstRenderTable1(){
-            table1.innerHTML = ''
-            addRow()
-        }
-        firstRenderTable1()
-        
-        function clearTable1() {
-            confirmationModal.modal('show');
-            
-            confirmClearBtn.off('click').on('click', function() {
                 
-                confirmationModal.modal('hide');
-                firstRenderTable1()
-            });
-        }
-        
-        function addRow(){
-            let tr = createRow();
-            table1.prepend(tr);
-            
-            updateRowNumbers();
-        }
-        
-        function updateRowNumbers() {
-            const rows = table1.getElementsByTagName('tr');
-            
-            for (let i = 0; i < rows.length; i++) {
-                const rowNumberCell = rows[i].querySelector('.row-number');
-                if (rowNumberCell) {
-                    rowNumberCell.textContent = i + 1;
-                }
-            }
-        }        
         
         
         var inputmask_decimals = {
