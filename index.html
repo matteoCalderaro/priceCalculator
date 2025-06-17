@@ -421,7 +421,7 @@
             let pastedData = clipboardData.getData('Text');
             
             let rows = pastedData.trim().split('\n');
-            //table1.innerHTML = ''
+            table1.innerHTML = ''
             
             rows.forEach(row => {
                 let columns = row.split('\t');
@@ -503,29 +503,7 @@
                     rowNumberCell.textContent = i + 1;
                 }
             }
-        }
-        
-        
-        // --------------------------
-        // provvisorio solo per sviluppo (cancellare)
-        // let tableBody = document.querySelector(".page-1").getElementsByTagName("tbody")[0];
-        // tableBody.innerHTML = ''
-        // let   rows = ["string\t1,00\t1,00\t10\t1,00\tnul", "string\t2,00\t1,00\t10\t1,00\tnul", "string\t3,00\t1,00\t10\t1,00\tnul", "string\t4,00\t1,00\t10\t1,00\tnul", "string\t5,00\t1,00\t10\t1,00\tnul", "string\t6,00\t1,00\t10\t1,00\tnul", "string\t7,00\t1,00\t10\t1,00\tnul", "string\t8,00\t1,00\t10\t1,00\tnul", "string\t9,00\t1,00\t10\t1,00\tnul", "string\t10,00\t1,00\t10\t1,00\tnul", "string\t11,00\t1,00\t10\t1,00\tnul", "string\t12,00\t1,00\t10\t1,00\tnul", "string\t13,00\t1,00\t10\t1,00\tnul", "string\t14,00\t1,00\t10\t1,00\tnul", "string\t15,00\t1,00\t10\t1,00\tnul", "string\t16,00\t1,00\t10\t1,00\tnul", "string\t17,00\t1,00\t10\t1,00\tnul", "string\t18,00\t1,00\t10\t1,00\tnul", "string\t19,00\t1,00\t10\t1,00\tnul", "string\t20,00\t1,00\t10\t1,00\tnul", "string\t21,00\t1,00\t10\t1,00\tnul", "string\t22,00\t1,00\t10\t1,00\tnul", "string\t23,00\t1,00\t10\t1,00\tnul", "string\t24,00\t1,00\t10\t1,00\tnul", "string\t25,00\t1,00\t10\t1,00\tnul", "string\t26,00\t1,00\t10\t1,00\tnul", "string\t27,00\t1,00\t10\t1,00\tnul", "string\t28,00\t1,00\t10\t1,00\tnul", "string\t29,00\t1,00\t10\t1,00\tnul", "string\t30,00\t1,00\t10\t1,00\tnul", "string\t31,00\t1,00\t10\t1,00\tnul", "string\t32,00\t1,00\t10\t1,00\tnul", "string\t33,00\t1,00\t10\t1,00\tnul", "string\t34,00\t1,00\t10\t1,00\tnul", "string\t35,00\t1,00\t10\t1,00\tnul", "string\t36,00\t1,00\t10\t1,00\tnul", "string\t37,00\t1,00\t10\t1,00\tnul", "string\t38,00\t1,00\t10\t1,00\tnul", "string\t39,00\t1,00\t10\t1,00\tnul"]
-        // rows.forEach(row => {
-        //     let columns = row.split('\t');
-        //     // if (columns.length >= 5) {
-        //     let tr = createRow(columns[0], columns[1], columns[2], columns[3], columns[4]);
-        //     tableBody.appendChild(tr);
-        //     //}
-        // });
-        // updateRowNumbers(); // Update row numbers after creating all rows
-        // renderTable1()
-        // blurTextarea()
-        // ----------------------------
-        
-        
-        
-        
+        }        
         
         
         var inputmask_decimals = {
