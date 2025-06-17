@@ -21,7 +21,9 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* CUSTOMER FORM */
+/********************
+ PAGE-1 CUSTOMER FORM 
+ **********************/
 .customerform-label {
     min-width: 120px;
     margin-bottom: -7px !important;
@@ -42,7 +44,9 @@ body {
     border-bottom: 2px solid var(--blue-600);
 }
 
-/* DROPZONE */
+/***********************
+ PAGE-1 DROPZONE 
+ ***********************/
 .textarea-outer-container {
     border: 2px dashed #868ea0;
     border-radius: 0.5rem;
@@ -72,68 +76,68 @@ textarea:focus {
     font-style: italic;
     color: #868ea0;
 }
-#dropzone.show {
-    animation: fadeIn 0.5s ease-in-out;
-}
 
-/* TABLE 1 */
-.table1.show { 
-    animation: fadeIn 0.5s ease-in-out;
-}
-.table1 tbody td:last-child {
+/***************
+ PAGE-1 TABLE 
+ ****************/
+.page-1 tbody td:last-child {
     padding: 0 !important;
     vertical-align: middle;
     border-right: none;
 }
-.table1 tbody td {
+.page-1 tbody td {
     border-right: 1px dashed #ddd;
     border-bottom: 1px dashed #ddd;
     padding: 6px 12px;
     cursor: text;
 }
-.table1 tbody tr td:first-child {
+.page-1 tbody tr td:first-child {
     font-weight: 500;
 }
-.table tbody tr td:not(:first-child) {
+.page-1 tbody tr td:not(:first-child) {
     color: var(--text-gray-600);
 }
-.table1 tbody td[contenteditable="true"]:focus {
+.page-1 tbody td[contenteditable="true"]:focus {
     background-color: var(--blue-50);
     outline: none; 
     box-shadow: inset 0 0 3px 2px var(--blue-400);
     color: #333;
 }
-.table1 tbody td[contenteditable="true"]:hover:not(:focus) {
+.page-1 tbody td[contenteditable="true"]:hover:not(:focus) {
     background-color: var(--blue-50)
 }
 
-/* TABLE 2 */
+/**************
+ PAGE-2 TABLE 
+ ***************/
 /* larghezza colonne */
-.table2 th:nth-child(2),
-.table2 th:nth-child(3),
-.table2 th:nth-child(4),
-.table2 th:nth-child(5),
-.table2 th:nth-child(6),
-.table2 th:nth-child(7),
+.page-2 th:nth-child(2),
+.page-2 th:nth-child(3),
+.page-2 th:nth-child(4),
+.page-2 th:nth-child(5),
+.page-2 th:nth-child(6),
+.page-2 th:nth-child(7),
 
-.table2 td:nth-child(2),
-.table2 td:nth-child(3),
-.table2 td:nth-child(4),
-.table2 td:nth-child(5),
-.table2 td:nth-child(6) {
+.page-2 td:nth-child(2),
+.page-2 td:nth-child(3),
+.page-2 td:nth-child(4),
+.page-2 td:nth-child(5),
+.page-2 td:nth-child(6) {
 	width: 130px;
 }
-.table2 td:nth-child(7) {
+.page-2 td:nth-child(7) {
 	width: 115px;
 }
 /* ultime colonne bordate */
-.table2 tr td:nth-last-child(2),
-.table2 tr td:last-child {
+.page-2 tr td:nth-last-child(2),
+.page-2 tr td:last-child {
     border: 1px solid #333;
     padding-left: 10px
 }
 
-/* LEGEND */
+/*******************
+ PAGE-2 LEGEND 
+ ********************/
 .legend-item {
   height: 10px;
   border-top: 1px solid #333;

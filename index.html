@@ -16,138 +16,142 @@
 <body class="vh-100 d-flex flex-column">
     <div style="background-color: var(--blue-gray-dark); height: 50px;width: 100%; position: sticky; top:0;z-index: 100;flex-shrink: 0;"></div>
     
-    <!-- CUSTOMER FORM -->
-    <div class="customer-form flex-shrink-0 bg-white rounded-2 shadow-sm my-3 px-4 pt-2 pb-3 mx-4" style="height: 90px;">
+    <!-- PAGES CONTAINER -->
+    <div class="mx-4 flex-grow-1 mb-3" style="min-height: 0;">
         
-        <div class="d-flex h-100 gap-5">
+        <!-- PAGE 1 -->
+        <div class="page-1">
             
-            <div class="d-flex flex-column flex-grow-1">
-                <div class="d-flex align-items-center small flex-grow-1">
-                    <label class="customerform-label mb-0 me-0">Customer ID:</label>
-                    <input type="text" class="customerform-input" />
-                </div>
-                <div class="d-flex align-items-center small flex-grow-1">
-                    <label class="customerform-label mb-0 me-0">Sales Org:</label>
-                    <input type="text" class="customerform-input" />
-                </div>
-            </div>
-            <div class="d-flex flex-column flex-grow-1">
-                <div class="d-flex align-items-center small flex-grow-1">
-                    <label class="customerform-label mb-0 me-0">Country Region:</label>
-                    <input type="text" class="customerform-input" />
-                </div>
-                <div class="d-flex align-items-center small flex-grow-1">
-                    <label class="customerform-label mb-0 me-0">Brand:</label>
-                    <input type="text" class="customerform-input" />
-                </div>                    
-            </div>
-            <div class="d-flex flex-column flex-grow-1">
-                <div class="d-flex align-items-center small flex-grow-1">
-                    <label class="customerform-label mb-0 me-0">Copper Price:</label>
-                    <input type="text" class="customerform-input decimals" />
-                </div>
-                <div class="d-flex align-items-center small flex-grow-1">
-                    <label class="customerform-label mb-0 me-0">Aluminium Price:</label>
-                    <input type="text" class="customerform-input decimals" />
+            <!-- CUSTOMER FORM -->
+            <div class="flex-shrink-0 bg-white rounded-2 shadow-sm my-3 px-4 pt-2 pb-3" style="height: 90px;">
+                
+                <div class="d-flex h-100 gap-5">
+                    
+                    <div class="d-flex flex-column flex-grow-1">
+                        <div class="d-flex align-items-center small flex-grow-1">
+                            <label class="customerform-label mb-0 me-0">Customer ID:</label>
+                            <input type="text" class="customerform-input" />
+                        </div>
+                        <div class="d-flex align-items-center small flex-grow-1">
+                            <label class="customerform-label mb-0 me-0">Sales Org:</label>
+                            <input type="text" class="customerform-input" />
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column flex-grow-1">
+                        <div class="d-flex align-items-center small flex-grow-1">
+                            <label class="customerform-label mb-0 me-0">Country Region:</label>
+                            <input type="text" class="customerform-input" />
+                        </div>
+                        <div class="d-flex align-items-center small flex-grow-1">
+                            <label class="customerform-label mb-0 me-0">Brand:</label>
+                            <input type="text" class="customerform-input" />
+                        </div>                    
+                    </div>
+                    <div class="d-flex flex-column flex-grow-1">
+                        <div class="d-flex align-items-center small flex-grow-1">
+                            <label class="customerform-label mb-0 me-0">Copper Price:</label>
+                            <input type="text" class="customerform-input decimals" />
+                        </div>
+                        <div class="d-flex align-items-center small flex-grow-1">
+                            <label class="customerform-label mb-0 me-0">Aluminium Price:</label>
+                            <input type="text" class="customerform-input decimals" />
+                        </div>
+                        
+                    </div>
+                    <div class="d-flex flex-column flex-grow-1 customerform-third-column">
+                        <div class="d-flex align-items-center small flex-grow-1">
+                            <label class="customerform-label mb-0 me-0">Date:</label>
+                            <input type="text" class="customerform-input date" />
+                        </div>
+                        <div class="d-flex align-items-center small flex-grow-1">
+                            <label class="customerform-label mb-0 me-0">Actions:</label>
+                            <input type="text" class="customerform-input" />
+                        </div>
+                    </div>
+                    
                 </div>
                 
             </div>
-            <div class="d-flex flex-column flex-grow-1 customerform-third-column">
-                <div class="d-flex align-items-center small flex-grow-1">
-                    <label class="customerform-label mb-0 me-0">Date:</label>
-                    <input type="text" class="customerform-input date" />
-                </div>
-                <div class="d-flex align-items-center small flex-grow-1">
-                    <label class="customerform-label mb-0 me-0">Actions:</label>
-                    <input type="text" class="customerform-input" />
-                </div>
-            </div>
             
-        </div>
-        
-    </div>
-    
-    <!-- GO PAGE BACK BUTTON -->
-    <div class="back-button align-items-center bg-white d-flex flex-shrink-0 mx-4 my-3 px-4 py-3 rounded-2 shadow-sm d-none">
-        <div class="d-flex align-items-center gap-2">
-            <button  class="btn text-white btn-sm btn-blue-dark fw-medium"onclick="goPageBack()"> <i class="fas fa-chevron-left me-1"></i>Back</button>
-            <span>Return to previous page to upload new data.</span>
-        </div>
-        
-    </div>
-    
-    <!-- DROPZONE -->
-    <div class="dropzone-container d-flex flex-column flex-grow-1 bg-white rounded-2 shadow-sm mx-4 mb-3">
-        
-        <div class="d-flex flex-column px-4 pt-1 pb-2">
-            <div class="fs-5 fw-semibold">Paste Data</div>
-            <!-- <div class="small text-muted">You can paste clipboard data directly. Text data is allowed.</div> -->
-        </div>
-        
-        <div class="px-4 pb-4 flex-grow-1">
-            <div class="textarea-outer-container h-100 d-flex justify-content-center align-items-center position-relative">
-                <div class="calltoaction text-center text-gray-italic">
-                    <i class="fas fa-mouse-pointer me-2 text-muted"></i>
-                    <span><em>Click here to paste copied data</em></span>
-                    <div><em class="small">Only text content is supported</em></div>
+            <!-- DROPZONE -->
+            <div class="d-flex flex-column bg-white rounded-2 shadow-sm mb-3" style="height: 150px;">
+                
+                <div class="px-4 pt-1 pb-2">
+                    <div class="fs-5 fw-semibold">Paste Data</div>
+                    <!-- <div class="small text-muted">You can paste clipboard data directly. Text data is allowed.</div> -->
                 </div>
-                <div class="textarea-inner-container w-100 h-100 position-absolute d-none">
-                    <textarea class="textarea w-100 h-100"></textarea>
-                    <div class="textarea-text-placeholder w-100 text-center text-gray-italic">
-                        <i class="fas fa-clipboard me-2 text-muted"></i>
-                        Press <span class="fw-semibold">Ctrl+V</span> (or <span class="fw-semibold">Cmd+V</span>) to paste
+                
+                <div class="px-4 pb-4 h-100">
+                    <div class="textarea-outer-container h-100 d-flex justify-content-center align-items-center position-relative">
+                        <div class="calltoaction text-center text-gray-italic">
+                            <i class="fas fa-mouse-pointer me-2 text-muted"></i>
+                            <span><em>Click here to paste copied data</em></span>
+                            <div><em class="small">Only text content is supported</em></div>
+                        </div>
+                        <div class="textarea-inner-container w-100 h-100 position-absolute d-none">
+                            <textarea class="textarea w-100 h-100"></textarea>
+                            <div class="textarea-text-placeholder w-100 text-center text-gray-italic">
+                                <i class="fas fa-clipboard me-2 text-muted"></i>
+                                Press <span class="fw-semibold">Ctrl+V</span> (or <span class="fw-semibold">Cmd+V</span>) to paste
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
-        </div>
-    </div>
-    
-    <!-- PAGES CONTAINER -->
-    <div class="pages-container rounded-2 shadow-sm mx-4 d-none flex-grow-1 mb-3" style="min-height: 0;">
-        
-        <!-- PAGE 1 -->
-        <div class="page-1-container bg-white rounded-2 p-4 d-none">
             
-            <div class="d-flex justify-content-between align-items-center pb-3">
-                <button id="clear-btn" class="btn btn-sm btn-outline-danger fw-medium" onclick="clearTable1()">Clear data table</button>
-                <div class="d-flex gap-2 ms-auto">
-                    <button class="btn btn-sm fw-medium btn-blue-light" onclick="addRow()">Add Row</button>
-                    <button class="btn btn-sm fw-medium btn-blue-medium text-white" onclick="validateTable1()">Validate data</button>
-                    <button class="btn btn-sm fw-medium btn-blue-dark text-white" onclick="renderTable2()">Generate simulation</button>
+            <!-- TABLE -->
+            <div class="bg-white rounded-2 p-4">
+                
+                <div class="d-flex justify-content-between align-items-center pb-3">
+                    <button id="clear-btn" class="btn btn-sm btn-outline-danger fw-medium" onclick="clearTable1()">Clear data table</button>
+                    <div class="d-flex gap-2 ms-auto">
+                        <button class="btn btn-sm fw-medium btn-blue-light" onclick="addRow()">Add Row</button>
+                        <button class="btn btn-sm fw-medium btn-blue-medium text-white" onclick="validateTable1()">Validate data</button>
+                        <button class="btn btn-sm fw-medium btn-blue-dark text-white" onclick="renderTable2()">Generate simulation</button>
+                    </div>
                 </div>
+                
+                <table class="table table-sm mb-0">
+                    <thead class="text-uppercase small">
+                        <tr>
+                            <th class="fw-semibold text-center" style="width: 60px;">#</th>
+                            <th class="fw-semibold">Material</th>
+                            <th class="fw-semibold">Quantity</th>
+                            <th class="fw-semibold">Domestic Rebates</th>
+                            <th class="fw-semibold">Adjustment</th>
+                            <th class="fw-semibold">International Rebates</th>
+                            <th class="fw-semibold" style="width: 50px;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+                
             </div>
-            
-            <!-- TABLE 1 -->
-            <table class="table table1 table-sm mb-0">
-                <thead class="text-uppercase small">
-                    <tr>
-                        <th class="fw-semibold text-center" style="width: 60px;">#</th>
-                        <th class="fw-semibold">Material</th>
-                        <th class="fw-semibold">Quantity</th>
-                        <th class="fw-semibold">Domestic Rebates</th>
-                        <th class="fw-semibold">Adjustment</th>
-                        <th class="fw-semibold">International Rebates</th>
-                        <th class="fw-semibold" style="width: 50px;">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
             
         </div>
         
         <!-- PAGE 2 -->
-        <div class="page-2-container bg-white rounded-2 h-100 p-4 d-none d-flex flex-column" style="min-height: 0;">
+        <div class="page-2 h-100 d-none d-flex flex-column" style="min-height: 0;">
+
+            <!-- BACK BUTTON -->
+            <div class="align-items-center bg-white d-flex flex-shrink-0 my-3 px-4 py-3 rounded-2 shadow-sm">
+                <div class="d-flex align-items-center gap-2">
+                    <button  class="btn text-white btn-sm btn-blue-dark fw-medium"onclick="goPageBack()"> <i class="fas fa-chevron-left me-1"></i>Back</button>
+                    <span>Return to previous page to upload new data.</span>
+                </div>
+            </div>
             
-            <div class="d-flex flex-grow-1" style="min-height: 0;">
+            <div class="d-flex flex-grow-1 bg-white rounded-2 p-4" style="min-height: 0;">
                 
-                <!-- TABLE 2 + LEGENDA -->
+                <!-- TABLE + LEGEND -->
                 <div class="d-flex flex-column pe-4 border-end" style="flex: 0 1 60%;">
-                    
                     
                     <!-- Fixed Header -->
                     <div class="flex-shrink-0">
-                        <table class="table table2 table-sm table-borderless mb-0" >
+                        <table class="table table-sm table-borderless mb-0" >
                             <thead class="text-uppercase small align-top">
                                 <tr>
                                     <th class="fw-semibold" >Material</th>
@@ -171,8 +175,7 @@
                         </table>
                     </div>
                     
-                    
-                    <!-- Legenda -->
+                    <!-- Legend -->
                     <div class="d-flex gap-5 mt-5 flex-shrink-0 small">
                         <div class="fw-semibold">Legenda</div>
                         <div class="d-flex flex-grow-1">
@@ -198,7 +201,6 @@
                             </div>
                         </div>
                     </div>
-                    
                     
                 </div>
                 
@@ -249,7 +251,7 @@
                         <li>Error 1: Missing name field.</li>
                         <li>Error 2: Email is invalid.</li>
                         <li>Error 3: Password must be at least 8 characters.
-                             <div style="height: 1000px;"></div>
+                            <div style="height: 1000px;"></div>
                         </li>
                         <li>Error 4: You must accept the terms and conditions.</li>
                     </ul>
@@ -272,47 +274,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // ELEMENTI CONTENITORI
-        const customerForm = document.querySelector('.customer-form');
-        const backButton = document.querySelector('.back-button');
-        const dropzoneContainer = document.querySelector('.dropzone-container');
-        
-        const pagesContainer = document.querySelector('.pages-container');
-        const page1_Container = document.querySelector('.page-1-container');
-        const page2_Container = document.querySelector('.page-2-container');
-        const table = document.querySelector('.table');
-        
+        // ELEMENTI CONTENITORI        
+        const page1 = document.querySelector('.page-1');
+        const page2 = document.querySelector('.page-2');
+
+        const table1 = document.querySelector('.page-1 tbody');
+        const table2 = document.querySelector('.page-2 tbody');
+
         const confirmationModal = $('#confirmationModal');
         const confirmClearBtn = $('#confirmClearBtn');
-        
+
         // ELEMENTI TEXTAREA
         const textarea = document.querySelector(".textarea");
         const calltoaction = document.querySelector(".calltoaction");
         const textareaOuterContainer = document.querySelector(".textarea-outer-container");
         const textareaInnerContainer = document.querySelector(".textarea-inner-container");
         const textareaTextPlaceholder = document.querySelector(".textarea-text-placeholder");
+
         
-        function renderTable1() {
-            dropzoneContainer.classList.add('d-none');
-            page1_Container.classList.remove('d-none');
-            pagesContainer.classList.remove('d-none');
-            table.classList.add('show');
-        }
-        
-        function clearTable1() {
-            confirmationModal.modal('show');
-            
-            confirmClearBtn.off('click').on('click', function() {
-                
-                confirmationModal.modal('hide');
-                dropzoneContainer.classList.remove('d-none');
-                dropzoneContainer.classList.add('show');
-                page1_Container.classList.add('d-none');
-                pagesContainer.classList.add('d-none');
-                table.classList.remove('show');
-            });
-        }
-        
+        // TABLE 2
         async function renderTable2() {
             
             document.getElementById('spinner').classList.remove('d-none');
@@ -324,8 +304,7 @@
                 const response = await fetch('response.json');
                 const data = await response.json();
                 
-                const tbody = document.querySelector('.page-2-container tbody');
-                if (tbody) tbody.innerHTML = '';
+                table2.innerHTML = '';
                 
                 data.forEach(item => {
                     const tr = document.createElement('tr');
@@ -375,19 +354,14 @@
                         } else {
                             td.textContent = value;
                         }
-                        
-                        
-                        
+                                                
                         tr.appendChild(td);
                     }
-                    tbody?.appendChild(tr);
+                    table2.appendChild(tr);
                 });
                 
-                customerForm.classList.add('d-none');
-                backButton.classList.remove('d-none');
-                page1_Container.classList.add('d-none');
-                page2_Container.classList.remove('d-none');
-                pagesContainer.classList.remove('d-none');
+                page1.classList.add('d-none');
+                page2.classList.remove('d-none');
                 
             } catch (error) {
                 console.error('Error loading simulation data:', error);
@@ -401,10 +375,8 @@
         
         
         function goPageBack() {
-            page2_Container.classList.add('d-none');
-            page1_Container.classList.remove('d-none');
-            backButton.classList.add('d-none');
-            customerForm.classList.remove('d-none');
+            page2.classList.add('d-none');
+            page1.classList.remove('d-none');
         }
         
         function focusTextarea(){
@@ -442,26 +414,24 @@
             blurTextarea()
         });
         
+        // FUNZIONI TABLE 1
         textarea.addEventListener("paste", function (e) {
             e.preventDefault();
             let clipboardData = e.clipboardData || window.clipboardData;
             let pastedData = clipboardData.getData('Text');
             
             let rows = pastedData.trim().split('\n');
-            let tableBody = document.querySelector(".page-1-container").getElementsByTagName("tbody")[0];
-            tableBody.innerHTML = ''
+            table1.innerHTML = ''
             
             rows.forEach(row => {
                 let columns = row.split('\t');
                 // if (columns.length >= 5) {
                 let tr = createRow(columns[0], columns[1], columns[2], columns[3], columns[4]);
-                tableBody.appendChild(tr);
+                table1.appendChild(tr);
                 //}
             });
             
-            updateRowNumbers(); // Update row numbers after creating all rows
-            
-            renderTable1()
+            updateRowNumbers();
             blurTextarea()
         });
         
@@ -500,18 +470,32 @@
             
             return tr;
         }
+ 
+        function firstRenderTable1(){
+            table1.innerHTML = ''
+            addRow()
+        }
+        firstRenderTable1()
+        
+        function clearTable1() {
+            confirmationModal.modal('show');
+            
+            confirmClearBtn.off('click').on('click', function() {
+                
+                confirmationModal.modal('hide');
+                firstRenderTable1()
+            });
+        }
         
         function addRow(){
-            const tableBody = document.querySelector('.page-1-container tbody');
             let tr = createRow();
-            tableBody.prepend(tr);
+            table1.prepend(tr);
             
-            updateRowNumbers(); // Update row numbers after creating all rows
+            updateRowNumbers();
         }
         
         function updateRowNumbers() {
-            const tableBody = document.querySelector('.page-1-container tbody');
-            const rows = tableBody.getElementsByTagName('tr');
+            const rows = table1.getElementsByTagName('tr');
             
             for (let i = 0; i < rows.length; i++) {
                 const rowNumberCell = rows[i].querySelector('.row-number');
@@ -524,7 +508,7 @@
         
         // --------------------------
         // provvisorio solo per sviluppo (cancellare)
-        // let tableBody = document.querySelector(".page-1-container").getElementsByTagName("tbody")[0];
+        // let tableBody = document.querySelector(".page-1").getElementsByTagName("tbody")[0];
         // tableBody.innerHTML = ''
         // let   rows = ["string\t1,00\t1,00\t10\t1,00\tnul", "string\t2,00\t1,00\t10\t1,00\tnul", "string\t3,00\t1,00\t10\t1,00\tnul", "string\t4,00\t1,00\t10\t1,00\tnul", "string\t5,00\t1,00\t10\t1,00\tnul", "string\t6,00\t1,00\t10\t1,00\tnul", "string\t7,00\t1,00\t10\t1,00\tnul", "string\t8,00\t1,00\t10\t1,00\tnul", "string\t9,00\t1,00\t10\t1,00\tnul", "string\t10,00\t1,00\t10\t1,00\tnul", "string\t11,00\t1,00\t10\t1,00\tnul", "string\t12,00\t1,00\t10\t1,00\tnul", "string\t13,00\t1,00\t10\t1,00\tnul", "string\t14,00\t1,00\t10\t1,00\tnul", "string\t15,00\t1,00\t10\t1,00\tnul", "string\t16,00\t1,00\t10\t1,00\tnul", "string\t17,00\t1,00\t10\t1,00\tnul", "string\t18,00\t1,00\t10\t1,00\tnul", "string\t19,00\t1,00\t10\t1,00\tnul", "string\t20,00\t1,00\t10\t1,00\tnul", "string\t21,00\t1,00\t10\t1,00\tnul", "string\t22,00\t1,00\t10\t1,00\tnul", "string\t23,00\t1,00\t10\t1,00\tnul", "string\t24,00\t1,00\t10\t1,00\tnul", "string\t25,00\t1,00\t10\t1,00\tnul", "string\t26,00\t1,00\t10\t1,00\tnul", "string\t27,00\t1,00\t10\t1,00\tnul", "string\t28,00\t1,00\t10\t1,00\tnul", "string\t29,00\t1,00\t10\t1,00\tnul", "string\t30,00\t1,00\t10\t1,00\tnul", "string\t31,00\t1,00\t10\t1,00\tnul", "string\t32,00\t1,00\t10\t1,00\tnul", "string\t33,00\t1,00\t10\t1,00\tnul", "string\t34,00\t1,00\t10\t1,00\tnul", "string\t35,00\t1,00\t10\t1,00\tnul", "string\t36,00\t1,00\t10\t1,00\tnul", "string\t37,00\t1,00\t10\t1,00\tnul", "string\t38,00\t1,00\t10\t1,00\tnul", "string\t39,00\t1,00\t10\t1,00\tnul"]
         // rows.forEach(row => {
